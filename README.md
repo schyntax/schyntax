@@ -1,4 +1,4 @@
-# Schyntax
+# ![](https://avatars1.githubusercontent.com/u/8682785?v=2&s=200)
 
 Schyntax is a domain-specific language for defining event schedules in a terse, but more readable format than cron.
 
