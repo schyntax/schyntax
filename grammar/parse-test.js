@@ -2,8 +2,9 @@
 
 var Fs = require('fs');
 var Jison = require('jison');
+var Path = require('path');
 
-var bnf = Fs.readFileSync('schyntax.jison', 'utf8');
+var bnf = Fs.readFileSync(Path.join(__dirname, 'schyntax.jison'), 'utf8');
 var parser = new Jison.Parser(bnf);
 
 var formats = [
@@ -72,20 +73,26 @@ var formats = [
 	"s(%3)"
 ];
 
-//formats = [ 'dow(-1)' ];
-
-for (var i = 0; i < formats.length; i++)
+function inspect (obj)
 {
-	try
-	{
-		parser.parse(formats[i]);
-	}
-	catch (ex)
-	{
-		console.error(formats[i]);
-		console.error(ex);
-		break;
-	}
+	console.log(require('util').inspect(obj, { depth: Infinity }));
 }
+
+inspect(parser.parse('group(dom(3..4) days(!monday..friday%2) min())'));
+
+//for (var i = 0; i < formats.length; i++)
+//{
+//	try
+//	{
+//		parser.parse(formats[i]);
+//	}
+//	catch (ex)
+//	{
+//		console.error(formats[i]);
+//		console.error(ex);
+//		break;
+//	}
+//}
+
 
 console.log('done');
