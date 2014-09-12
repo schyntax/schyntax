@@ -1,6 +1,6 @@
 
 %{
-	// classes
+	// AST Classes
 	
 	function Program (children)
 	{
@@ -60,6 +60,7 @@
 		this.type = 'MixinIdentifier';
 	}
 	
+	// Range doesn't actually show up in the AST. It's an intermediate class.
 	function Range (start, end)
 	{
 		/** @member {DateValue|IntegerValue} */
@@ -267,23 +268,23 @@ OptionalModulus
 
 DateRange
 	: DateLiteral
-		{ $$ = { start: $1, end: null }; }
+		{ $$ = new Range($1, null); }
 	| DateLiteral '..' DateLiteral
-		{ $$ = { start: $1, end: $3 }; }
+		{ $$ = new Range($1, $3); }
 ;
 
 IntegerRange
 	: IntegerLiteral
-		{ $$ = { start: $1, end: null }; }
+		{ $$ = new Range($1, null); }
 	| IntegerLiteral '..' IntegerLiteral
-		{ $$ = { start: $1, end: $3 }; }
+		{ $$ = new Range($1, $3); }
 ;
 
 DayRange
 	: DayOrIntegerLiteral
-		{ $$ = { start: $1, end: null }; }
+		{ $$ = new Range($1, null); }
 	| DayOrIntegerLiteral '..' DayOrIntegerLiteral
-		{ $$ = { start: $1, end: $3 }; }
+		{ $$ = new Range($1, $3); }
 ;
 
 /* --- Literals --- */
