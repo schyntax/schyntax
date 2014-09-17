@@ -78,7 +78,7 @@ function inspect (obj)
 	console.log(require('util').inspect(obj, { depth: Infinity }));
 }
 
-inspect(parser.parse('group(dom(3..4) days(!monday..friday%2) min())'));
+inspect(parser.parse('group(dom(3..4) days(!monday..friday%2) min() dom(3, 6, 9..17))'));
 
 //for (var i = 0; i < formats.length; i++)
 //{
