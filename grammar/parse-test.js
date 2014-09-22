@@ -5,7 +5,11 @@ var Jison = require('jison');
 var Path = require('path');
 
 var bnf = Fs.readFileSync(Path.join(__dirname, 'schyntax.jison'), 'utf8');
+
 var parser = new Jison.Parser(bnf);
+
+var gen = new Jison.Generator(bnf);
+Fs.writeFileSync('JsSchyntaxParser.js', gen.generateCommonJSModule({ moduleName: 'JsSchyntaxParser' }));
 
 var formats = [
 	"dates(12/25)",
@@ -78,7 +82,7 @@ function inspect (obj)
 	console.log(require('util').inspect(obj, { depth: Infinity }));
 }
 
-inspect(parser.parse('group(dom(3..4) days(!monday..friday%2) min() dom(3, 6, 9..17))'));
+inspect(parser.parse('group(dom(3..4) days(!monday..friday%2) min() dom(3, 6, 9..17)) dates(2014/1/2, 7)'));
 
 //for (var i = 0; i < formats.length; i++)
 //{
