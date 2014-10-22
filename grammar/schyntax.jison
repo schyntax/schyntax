@@ -106,7 +106,7 @@
 
 %%
 \s+       { /* ignore whitespace */ }
-<<EOF>>     { return 'EOF'; }
+<<EOF>>   { return 'EOF'; }
 
 '..'      { return '..'; }
 '%'       { return '%'; }
@@ -121,20 +121,20 @@
 
 \$[a-z][a-z0-9_]* { return 'MIXIN_IDENTIFIER'; }
 
-\b(su|sun|sunday)\b       { return 'SUNDAY'; }
-\b(mo|mon|monday)\b       { return 'MONDAY'; }
-\b(tu|tue|tuesday|tues)\b     { return 'TUESDAY'; }
-\b(we|wed|wednesday)\b      { return 'WEDNESDAY'; }
+\b(su|sun|sunday)\b               { return 'SUNDAY'; }
+\b(mo|mon|monday)\b               { return 'MONDAY'; }
+\b(tu|tue|tuesday|tues)\b         { return 'TUESDAY'; }
+\b(we|wed|wednesday)\b            { return 'WEDNESDAY'; }
 \b(th|thu|thursday|thur|thurs)\b  { return 'THURSDAY'; }
-\b(fr|fri|friday)\b       { return 'FRIDAY'; }
-\b(sa|sat|saturday)\b     { return 'SATURDAY'; }
+\b(fr|fri|friday)\b               { return 'FRIDAY'; }
+\b(sa|sat|saturday)\b             { return 'SATURDAY'; }
 
 \b(s|sec|second|seconds|secondofminute|secondsofminute)\b { return 'SECONDS'; }
-\b(m|min|minute|minutes|minuteofhour|minutesofhour)\b   { return 'MINUTES'; }
-\b(h|hour|hours|hourofday|hoursofday)\b       { return 'HOURS'; }
-\b(day|days|dow|dayofweek|daysofweek)\b       { return 'DAYS_OF_WEEK'; }
-\b(dom|dayofmonth|daysofmonth)\b          { return 'DAYS_OF_MONTH'; }
-\b(date|dates)\b                { return 'DATES'; }
+\b(m|min|minute|minutes|minuteofhour|minutesofhour)\b     { return 'MINUTES'; }
+\b(h|hour|hours|hourofday|hoursofday)\b                   { return 'HOURS'; }
+\b(day|days|dow|dayofweek|daysofweek)\b                   { return 'DAYS_OF_WEEK'; }
+\b(dom|dayofmonth|daysofmonth)\b                          { return 'DAYS_OF_MONTH'; }
+\b(date|dates)\b                                   	      { return 'DATES'; }
 
 \b(group)\b                 { return 'GROUP' }
 
@@ -185,54 +185,41 @@ ExpressionList
 ;
 
 Expression
-	: SecondsExpression
-	| MinutesExpression
-	| HoursExpression
-	| DaysOfWeekExpression
-	| DaysOfMonthExpression
-	| DatesExpression
+	: IntegerTypeExpression
+	| DayTypeExpression
+	| DateTypeExpression
 ;
 
-SecondsExpression
-	: SECONDS '(' ')'
-		{ $$ = new Expression(loc(@$), 'seconds', []); }
-	| SECONDS '(' IntegerArgumentList ')'
-		{ $$ = new Expression(loc(@$), 'seconds', $3); }
+IntegerTypeExpression
+	: IntegerExpressionName '(' ')'
+		{ $$ = new Expression(loc(@$), $1, []); }
+	| IntegerExpressionName '(' IntegerArgumentList ')'
+		{ $$ = new Expression(loc(@$), $1, $3); }
 ;
 
-MinutesExpression
-	: MINUTES '(' ')'
-		{ $$ = new Expression(loc(@$), 'minutes', []); }
-	| MINUTES '(' IntegerArgumentList ')'
-		{ $$ = new Expression(loc(@$), 'minutes', $3); }
-;
-
-HoursExpression
-	: HOURS '(' ')'
-		{ $$ = new Expression(loc(@$), 'hours', []); }
-	| HOURS '(' IntegerArgumentList ')'
-		{ $$ = new Expression(loc(@$), 'hours', $3); }
-;
-
-DaysOfWeekExpression
+DayTypeExpression
 	: DAYS_OF_WEEK '(' ')'
 		{ $$ = new Expression(loc(@$), 'daysofweek', []); }
 	| DAYS_OF_WEEK '(' DayArgumentList ')'
 		{ $$ = new Expression(loc(@$), 'daysofweek', $3); }
 ;
 
-DaysOfMonthExpression
-	: DAYS_OF_MONTH '(' ')'
-		{ $$ = new Expression(loc(@$), 'daysofmonth', []); }
-	| DAYS_OF_MONTH '(' IntegerArgumentList ')'
-		{ $$ = new Expression(loc(@$), 'daysofmonth', $3); }
-;
-
-DatesExpression
+DateTypeExpression
 	: DATES '(' ')'
 		{ $$ = new Expression(loc(@$), 'dates', []); }
 	| DATES '(' DateArgumentList ')'
 		{ $$ = new Expression(loc(@$), 'dates', $3); }
+;
+
+IntegerExpressionName
+	: SECONDS
+		{ $$ = 'seconds'; }
+	| MINUTES
+		{ $$ = 'minutes'; }
+	| HOURS
+		{ $$ = 'hours'; }
+	| DAYS_OF_MONTH
+		{ $$ = 'daysofmonth'; }
 ;
 
 /* --- Arguments --- */

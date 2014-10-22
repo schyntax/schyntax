@@ -82,21 +82,22 @@ function inspect (obj)
 	console.log(require('util').inspect(obj, { depth: Infinity }));
 }
 
-inspect(parser.parse('group(dom(3..4) days(!monday..friday%2) min() dom(3, 6, 9..17)) dates(2014/1/2, 7)'));
+//inspect(parser.parse('group(dom(3..4) days(!monday..friday%2) min() dom(3, 6, 9..17)) dates(1/2, 7/1)'));
+//inspect(parser.parse('sec(-1)'));
 
-//for (var i = 0; i < formats.length; i++)
-//{
-//	try
-//	{
-//		parser.parse(formats[i]);
-//	}
-//	catch (ex)
-//	{
-//		console.error(formats[i]);
-//		console.error(ex);
-//		break;
-//	}
-//}
+for (var i = 0; i < formats.length; i++)
+{
+	try
+	{
+		parser.parse(formats[i]);
+	}
+	catch (ex)
+	{
+		console.error(formats[i]);
+		console.error(ex);
+		break;
+	}
+}
 
 
 console.log('done');
