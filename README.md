@@ -29,6 +29,7 @@ General Syntax Rules:
 * All expressions accept any number of arguments, and may mix includes and excludes. For example, you might specify every weekday except tuesday as `days(mon..fri, !tues)`.
 * All time-related values are evaluated as UTC. `hours(12)` will be noon UTC, not noon local.
 * Numeric ranges are specified in the form of `start..end`. For example, `days(1..5)` is the first five days of the month. The order of start and end is significant, and in cases where `start > end` it will be interpreted as a range which wraps. In other words, `minutes(58..2)` means it will run on minutes 58, 59, 0, 1, and 2.
+* The `..` operator is inclusive of the start and end values. `1..4` is equal to `1,2,3,4`. There is also a `...` operator which is the "half-open" range operator, meaning it is inclusive of the start, but exclusive of the end value. `1...4` is equal to `1,2,3`.
 * The wildcard `*` operator means "any value." For example, `min(*)` means "run every minute."
 * The `%` operator can be used to define intervals. `seconds(*%2)` will run on all even seconds. `seconds(7%3)` will run at 7,10,13, ...,55, and 58 seconds of every minute. `seconds(7..19%4)` will run at 7,11,15, and 19 seconds. `seconds(57..4%2)` will run at 57,59,1, and 3 seconds. Note that the interval operation is always relative to the start value in the range.
 
@@ -120,3 +121,4 @@ The node.js/JavaScript implementation was the first implementation, and lessons 
 2. JS has an implicit wildcard. So, in C# you would use `min(*)` or `min(*%2)`, but in JS you would use `min()` or `min(%2)`.
 3. JS uses `group(min(5) sec(2))` for groups. C# uses `{min(5) sec(2)}` for groups.
 4. Commas inside expressions are mandatory in JS, and optional in C#. `min(1, 2)` is valid in either. `min(1 2)` is only valid in C#.
+5. JS does not support the half-open range operator (`...`).
