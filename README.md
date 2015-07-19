@@ -2,18 +2,7 @@
 
 Schyntax is a domain-specific language for defining event schedules in a terse, but readable, format. For example, if you want something to run every five minutes, you could write `min(*%5)`.
 
-This project will holds the language documentation and [official test suite](https://github.com/schyntax/schyntax/blob/master/tests.json). The current reference implementation is [C# Schyntax](https://github.com/schyntax/cs-schyntax). The [original implementation](https://github.com/schyntax/js-schyntax) is in JavaScript (there are [a few incompatibilities](#csharp-js-differences) between the two implementations for the time being). 
-
-### Want to Help?
-
-The two implementations are already very usable. In particular, we would love help with:
-
-* Adding tests to the official cross-library suite
-* Writing implementations in other languages
-* Bringing the JavaScript implementation up to parity with the C# implementation
-* Giving input, and contributing towards [roadmap items](https://github.com/schyntax/js-schyntax/issues/6)
-
-Bug fixes are always welcome. If you would like to contribute features to the schyntax expression language, open an issue on this project with your proposed functionality, syntax changes, and use cases _BEFORE_ you submit a pull request so that it can be discussed.
+This project holds the language documentation and [official test suite](https://github.com/schyntax/schyntax/blob/master/tests.json). The reference implementation is [C# Schyntax](https://github.com/schyntax/cs-schyntax). The is also a fully-compatible [JavaScript implementation](https://github.com/schyntax/js-schyntax).
 
 ## Syntax
 
@@ -112,13 +101,12 @@ All groups are evaluated to find the next or previous applicable date, and they 
 
 Nesting of groups is not allowed.
 
-<a name="csharp-js-differences"></a>
-## Differences Between the C# and JavaScript Implementations
+### Want to Help?
 
-The node.js/JavaScript implementation was the first implementation, and lessons learned there were used to write an improved C# port, which is the new reference implementation. The goal is to bring the JavaScript version up to the same standards, which will likely require a complete parser re-write. For now, here are the important differences:
+There are already two implementations, but there are several ways to contribute if you're interested.
 
-1. JS does not support specifying years in date arguments. `date(2015/12/01)` is valid in C#, but not JS.
-2. JS has an implicit wildcard. So, in C# you would use `min(*)` or `min(*%2)`, but in JS you would use `min()` or `min(%2)`.
-3. JS uses `group(min(5) sec(2))` for groups. C# uses `{min(5) sec(2)}` for groups.
-4. Commas inside expressions are mandatory in JS, and optional in C#. `min(1, 2)` is valid in either. `min(1 2)` is only valid in C#.
-5. JS does not support the half-open range operator (`..<`).
+* Adding tests to the official [cross-library suite](https://github.com/schyntax/schyntax/blob/master/tests.json).
+* Writing ports for other languages.
+* Giving input, and contributing towards [roadmap items](https://github.com/schyntax/schyntax/issues/1)
+
+Bug fixes are always welcome. If possible, try to submit a test with your bug fix. If you would like to contribute features to the schyntax expression language, open an issue on this project with your proposed functionality, syntax changes, and use cases _BEFORE_ you submit a pull request to any of the implementations so that it can be discussed.
