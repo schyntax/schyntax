@@ -87,7 +87,7 @@
       },
       {
         "format": "dates(1/-1)",
-        "parseErrorIndex": 6
+        "parseErrorIndex": 8
       },
       {
         "format": "dates(1/0)",
