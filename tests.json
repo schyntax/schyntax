@@ -48,6 +48,54 @@
         "date": "2014-12-26T00:00:00.000Z",
         "prev": "2014-12-26T00:00:00.000Z",
         "next": "2015-12-25T00:00:00.000Z"
+      },
+      {
+        "format": "dates(2015/1/1..4/15)",
+        "parseErrorIndex": 6
+      },
+      {
+        "format": "dates(2015/1/1..2014/4/15)",
+        "parseErrorIndex": 6
+      },
+      {
+        "format": "dates(1899/1/1)",
+        "parseErrorIndex": 6
+      },
+      {
+        "format": "dates(2201/1/1)",
+        "parseErrorIndex": 6
+      },
+      {
+        "format": "dates(2015/2/29)",
+        "parseErrorIndex": 6
+      },
+      {
+        "format": "dates(2100/2/29)",
+        "parseErrorIndex": 6
+      },
+      {
+        "format": "dates(0/1)",
+        "parseErrorIndex": 6
+      },
+      {
+        "format": "dates(13/1)",
+        "parseErrorIndex": 6
+      },
+      {
+        "format": "dates(-1/1)",
+        "parseErrorIndex": 6
+      },
+      {
+        "format": "dates(1/-1)",
+        "parseErrorIndex": 6
+      },
+      {
+        "format": "dates(1/0)",
+        "parseErrorIndex": 6
+      },
+      {
+        "format": "dates(1/32)",
+        "parseErrorIndex": 6
       }
     ]
   },
@@ -328,6 +376,18 @@
         "date": "2014-05-09T00:00:00.000Z",
         "prev": "2014-05-09T00:00:00.000Z",
         "next": "2014-05-20T00:00:00.000Z"
+      },
+      {
+        "format": "dom(0)",
+        "parseErrorIndex": 4
+      },
+      {
+        "format": "dom(32)",
+        "parseErrorIndex": 4
+      },
+      {
+        "format": "dom(-32)",
+        "parseErrorIndex": 4
       }
     ]
   },
@@ -854,6 +914,18 @@
         "date": "2014-07-17T00:00:00.000Z",
         "prev": "2014-07-17T00:00:00.000Z",
         "next": "2014-07-19T00:00:00.000Z"
+      },
+      {
+        "format": "dow(0)",
+        "parseErrorIndex": 4
+      },
+      {
+        "format": "dow(8)",
+        "parseErrorIndex": 4
+      },
+      {
+        "format": "dow(-1)",
+        "parseErrorIndex": 4
       }
     ]
   },
@@ -1158,6 +1230,14 @@
         "date": "2014-06-25T21:00:00.000Z",
         "prev": "2014-06-25T21:00:00.000Z",
         "next": "2014-06-26T00:00:00.000Z"
+      },
+      {
+        "format": "h(-1)",
+        "parseErrorIndex": 2
+      },
+      {
+        "format": "h(24)",
+        "parseErrorIndex": 2
       }
     ]
   },
@@ -1468,6 +1548,14 @@
         "date": "2014-06-25T18:57:00.000Z",
         "prev": "2014-06-25T18:57:00.000Z",
         "next": "2014-06-25T19:00:00.000Z"
+      },
+      {
+        "format": "m(-1)",
+        "parseErrorIndex": 2
+      },
+      {
+        "format": "m(60)",
+        "parseErrorIndex": 2
       }
     ]
   },
@@ -1778,6 +1866,264 @@
         "date": "2014-06-25T18:00:57.000Z",
         "prev": "2014-06-25T18:00:57.000Z",
         "next": "2014-06-25T18:01:00.000Z"
+      },
+      {
+        "format": "s(-1)",
+        "parseErrorIndex": 2
+      },
+      {
+        "format": "s(60)",
+        "parseErrorIndex": 2
+      }
+    ]
+  },
+  "emptyScheduleErrors": {
+    "checks": [
+      {
+        "format": "",
+        "parseErrorIndex": 0
+      },
+      {
+        "format": " ",
+        "parseErrorIndex": 0
+      },
+      {
+        "format": "{}",
+        "parseErrorIndex": 0
+      }
+    ]
+  },
+  "generalSyntaxErrors": {
+    "checks": [
+      {
+        "format": "foo",
+        "parseErrorIndex": 0
+      },
+      {
+        "format": "foo()",
+        "parseErrorIndex": 0
+      },
+      {
+        "format": "foo(*)",
+        "parseErrorIndex": 0
+      },
+      {
+        "format": "(",
+        "parseErrorIndex": 0
+      },
+      {
+        "format": ")",
+        "parseErrorIndex": 0
+      },
+      {
+        "format": "()",
+        "parseErrorIndex": 0
+      },
+      {
+        "format": "{",
+        "parseErrorIndex": 1
+      },
+      {
+        "format": "}",
+        "parseErrorIndex": 0
+      },
+      {
+        "format": "/",
+        "parseErrorIndex": 0
+      },
+      {
+        "format": ":",
+        "parseErrorIndex": 0
+      },
+      {
+        "format": "\"",
+        "parseErrorIndex": 0
+      },
+      {
+        "format": "*",
+        "parseErrorIndex": 0
+      },
+      {
+        "format": "1",
+        "parseErrorIndex": 0
+      },
+      {
+        "format": "monday",
+        "parseErrorIndex": 0
+      }
+    ]
+  },
+  "incompleteExpressions": {
+    "checks": [
+      {
+        "format": "minute",
+        "parseErrorIndex": 6
+      },
+      {
+        "format": "minute(",
+        "parseErrorIndex": 7
+      },
+      {
+        "format": "minute()",
+        "parseErrorIndex": 7
+      },
+      {
+        "format": "minute(5",
+        "parseErrorIndex": 8
+      },
+      {
+        "format": "minute(5..",
+        "parseErrorIndex": 10
+      },
+      {
+        "format": "minute(5..6",
+        "parseErrorIndex": 11
+      },
+      {
+        "format": "minute(5..6%",
+        "parseErrorIndex": 12
+      },
+      {
+        "format": "minute(5..)",
+        "parseErrorIndex": 10
+      },
+      {
+        "format": "minute(5%",
+        "parseErrorIndex": 9
+      },
+      {
+        "format": "minute(5%)",
+        "parseErrorIndex": 9
+      },
+      {
+        "format": "minute(!",
+        "parseErrorIndex": 8
+      },
+      {
+        "format": "minute(!)",
+        "parseErrorIndex": 8
+      },
+      {
+        "format": "minute(!%)",
+        "parseErrorIndex": 8
+      }
+    ]
+  },
+  "invalidAttributes": {
+    "checks": [
+      {
+        "format": "minute(foo)",
+        "parseErrorIndex": 7
+      },
+      {
+        "format": "minute(monday)",
+        "parseErrorIndex": 7
+      },
+      {
+        "format": "minute(4/1)",
+        "parseErrorIndex": 8
+      },
+      {
+        "format": "dow(1..tuesday%wednesday)",
+        "parseErrorIndex": 15
+      },
+      {
+        "format": "minute(*%0)",
+        "parseErrorIndex": 8
+      }
+    ]
+  },
+  "largeInteger": {
+    "checks": [
+      {
+        "format": "m(999999999999999999999999999999999999999)",
+        "parseErrorIndex": 2
+      },
+      {
+        "format": "m(4294967296)",
+        "parseErrorIndex": 2
+      }
+    ]
+  },
+  "invalidRange": {
+    "checks": [
+      {
+        "format": "m(5..<5)",
+        "parseErrorIndex": 2
+      },
+      {
+        "format": "date(2/4..<2/4)",
+        "parseErrorIndex": 5
+      }
+    ]
+  },
+  "invalidWildcardExclusion": {
+    "checks": [
+      {
+        "format": "m(!*)",
+        "parseErrorIndex": 2
+      },
+      {
+        "format": "m(!*%2)",
+        "date": "2014-06-25T18:26:12.326Z",
+        "prev": "2014-06-25T18:25:00.000Z",
+        "next": "2014-06-25T18:27:00.000Z"
+      }
+    ]
+  },
+  "commaParsing": {
+    "checks": [
+      {
+        "format": ",m(5)",
+        "parseErrorIndex": 0
+      },
+      {
+        "format": "m(5),",
+        "date": "2014-06-25T18:26:12.326Z",
+        "prev": "2014-06-25T18:05:00.000Z",
+        "next": "2014-06-25T19:05:00.000Z"
+      },
+      {
+        "format": "m(5),,",
+        "parseErrorIndex": 5
+      },
+      {
+        "format": "m(,5)",
+        "parseErrorIndex": 2
+      },
+      {
+        "format": "m(5,)",
+        "date": "2014-06-25T18:26:12.326Z",
+        "prev": "2014-06-25T18:05:00.000Z",
+        "next": "2014-06-25T19:05:00.000Z"
+      },
+      {
+        "format": "m(5,,)",
+        "parseErrorIndex": 4
+      },
+      {
+        "format": "m(5,10)",
+        "date": "2014-06-25T18:26:12.326Z",
+        "prev": "2014-06-25T18:10:00.000Z",
+        "next": "2014-06-25T19:05:00.000Z"
+      },
+      {
+        "format": "m(5 10)",
+        "date": "2014-06-25T18:26:12.326Z",
+        "prev": "2014-06-25T18:10:00.000Z",
+        "next": "2014-06-25T19:05:00.000Z"
+      },
+      {
+        "format": "m(5),m(10)",
+        "date": "2014-06-25T18:26:12.326Z",
+        "prev": "2014-06-25T18:10:00.000Z",
+        "next": "2014-06-25T19:05:00.000Z"
+      },
+      {
+        "format": "m(5) m(10)",
+        "date": "2014-06-25T18:26:12.326Z",
+        "prev": "2014-06-25T18:10:00.000Z",
+        "next": "2014-06-25T19:05:00.000Z"
       }
     ]
   }
