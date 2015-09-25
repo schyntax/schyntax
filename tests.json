@@ -1877,7 +1877,7 @@
       }
     ]
   },
-  "emptyScheduleErrors": {
+  "syntaxErrors": {
     "checks": [
       {
         "format": "",
@@ -1890,11 +1890,7 @@
       {
         "format": "{}",
         "parseErrorIndex": 0
-      }
-    ]
-  },
-  "generalSyntaxErrors": {
-    "checks": [
+      },
       {
         "format": "foo",
         "parseErrorIndex": 0
@@ -1950,11 +1946,7 @@
       {
         "format": "monday",
         "parseErrorIndex": 0
-      }
-    ]
-  },
-  "incompleteExpressions": {
-    "checks": [
+      },
       {
         "format": "minute",
         "parseErrorIndex": 6
@@ -2009,7 +2001,7 @@
       }
     ]
   },
-  "invalidAttributes": {
+  "argumentErrors": {
     "checks": [
       {
         "format": "minute(foo)",
@@ -2030,11 +2022,7 @@
       {
         "format": "minute(*%0)",
         "parseErrorIndex": 8
-      }
-    ]
-  },
-  "largeInteger": {
-    "checks": [
+      },
       {
         "format": "m(999999999999999999999999999999999999999)",
         "parseErrorIndex": 2
@@ -2042,11 +2030,7 @@
       {
         "format": "m(4294967296)",
         "parseErrorIndex": 2
-      }
-    ]
-  },
-  "invalidRange": {
-    "checks": [
+      },
       {
         "format": "m(5..<5)",
         "parseErrorIndex": 2
@@ -2054,11 +2038,7 @@
       {
         "format": "date(2/4..<2/4)",
         "parseErrorIndex": 5
-      }
-    ]
-  },
-  "invalidWildcardExclusion": {
-    "checks": [
+      },
       {
         "format": "m(!*)",
         "parseErrorIndex": 2
@@ -2071,7 +2051,7 @@
       }
     ]
   },
-  "commaParsing": {
+  "commas": {
     "checks": [
       {
         "format": ",m(5)",
