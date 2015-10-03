@@ -4,6 +4,8 @@ Schyntax is a domain-specific language for defining event schedules in a terse, 
 
 This project holds the language documentation and [official test suite](https://github.com/schyntax/schyntax/blob/master/tests.json). The reference implementation is [C# Schyntax](https://github.com/schyntax/cs-schyntax). The is also a fully-compatible [JavaScript implementation](https://github.com/schyntax/js-schyntax).
 
+__If you're interested in porting Schyntax to another language, please [read this](https://github.com/schyntax/schyntax/blob/master/Porting.md).__
+
 ## Syntax
 
 Format strings are composed of [groups](#groups) and [expressions](#expressions).
