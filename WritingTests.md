@@ -85,8 +85,8 @@ Only whole-line comments are supported.
 f: minutes(*) # this is an invalid comment
 ```
 
-## Building the Tests
+## Compiling the Tests
 
-If you want to compile the files from the tests directory into the tests.json file, you'll need [node.js](https://nodejs.org) installed. Then simply run: `node GenerateTestsJson.js` in the root of this repository.
+If you want to compile the files from the tests directory into the tests.json file, you'll need [node.js](https://nodejs.org) installed. Then simply run: `node CompileTests` in the root of this repository.
 
 You can then copy the modified tests.json file to a Schyntax implementation to try it out. However, __do not submit this modified tests.json file__ in a pull request. Only submit the modified files in the tests directory. If you submit a modified tests.json file, you'll be asked to modify your pull request.
