@@ -1,5 +1,6 @@
 {
-  "testsVersion": 1,
+  "testsVersion": 2,
+  "hash": "7b2457ecd5e91d84cd1e44eefb5cee4a",
   "comment": "THIS IS A GENERATED FILE. No changes should be made to this file directly. See: https://github.com/schyntax/schyntax/blob/master/WritingTests.md",
   "suites": {
     "argumentErrors": [

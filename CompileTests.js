@@ -1,3 +1,4 @@
+var Crypto = require('crypto');
 var Fs = require('fs');
 var Path = require('path');
 
@@ -23,6 +24,7 @@ function run()
 	var files = Fs.readdirSync(TESTS_DIR);
 	var tests = {
 		testsVersion: existingTests.testsVersion + 1,
+		hash: '',
 		comment: 'THIS IS A GENERATED FILE. No changes should be made to this file directly. See: https://github.com/schyntax/schyntax/blob/master/WritingTests.md',
 		suites: {}
 	};
@@ -33,7 +35,17 @@ function run()
 		tests.suites[name] = parseTests(name, f);
 	}
 	
-	Fs.writeFileSync(OUTPUT_FILE, JSON.stringify(tests, jsonReplacer, 2));
+	// create the hash
+	var hash = Crypto.createHash('md5');
+	hash.update(toJson(tests), 'utf8');
+	tests.hash = hash.digest('hex');
+	
+	Fs.writeFileSync(OUTPUT_FILE, toJson(tests));
+}
+
+function toJson(tests)
+{
+	return JSON.stringify(tests, jsonReplacer, 2);
 }
 
 function jsonReplacer(key, value)
