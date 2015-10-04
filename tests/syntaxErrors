@@ -1,0 +1,120 @@
+-- Empty schedule.
+f: 
+e: ^
+
+-- Whitespace only schedule
+f:  
+e: ^
+
+-- Empty group, and no expressions.
+f: {}
+e: ^
+
+-- Unknown token.
+f: foo
+e: ^
+
+-- Unknown expression.
+f: foo()
+e: ^
+
+-- Unknown expression.
+f: foo(*)
+e: ^
+
+--
+f: (
+e: ^
+
+--
+f: )
+e: ^
+
+--
+f: ()
+e: ^
+
+-- Unclosed group.
+f: {
+e:  ^
+
+--
+f: }
+e: ^
+
+--
+f: /
+e: ^
+
+--
+f: :
+e: ^
+
+--
+f: "
+e: ^
+
+--
+f: *
+e: ^
+
+--
+f: 1
+e: ^
+
+--
+f: monday
+e: ^
+
+--
+f: minute
+e:       ^
+
+--
+f: minute(
+e:        ^
+
+--
+f: minute()
+e:        ^
+
+--
+f: minute(5
+e:         ^
+
+--
+f: minute(5..
+e:           ^
+
+--
+f: minute(5..6
+e:            ^
+
+--
+f: minute(5..6%
+e:             ^
+
+--
+f: minute(5..)
+e:           ^
+
+--
+f: minute(5%
+e:          ^
+
+--
+f: minute(5%)
+e:          ^
+
+--
+f: minute(!
+e:         ^
+
+--
+f: minute(!)
+e:         ^
+
+--
+f: minute(!%)
+e:         ^
+

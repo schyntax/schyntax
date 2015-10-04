@@ -107,8 +107,8 @@ Nesting of groups is not allowed.
 
 There are already two implementations, but there are several ways to contribute if you're interested.
 
-* Adding tests to the official [cross-library suite](https://github.com/schyntax/schyntax/blob/master/tests.json).
-* Writing ports for other languages.
+* [Adding tests](https://github.com/schyntax/schyntax/blob/master/WritingTests.md) to the official cross-library suite.
+* [Writing ports](https://github.com/schyntax/schyntax/blob/master/Porting.md) for other languages.
 * Giving input, and contributing towards [roadmap items](https://github.com/schyntax/schyntax/issues/1)
 
 Bug fixes are always welcome. If possible, try to submit a test with your bug fix. If you would like to contribute features to the schyntax expression language, open an issue on this project with your proposed functionality, syntax changes, and use cases _BEFORE_ you submit a pull request to any of the implementations so that it can be discussed.

@@ -1,6 +1,120 @@
 {
-  "dates": {
-    "checks": [
+  "testsVersion": 1,
+  "comment": "THIS IS A GENERATED FILE. No changes should be made to this file directly. See: https://github.com/schyntax/schyntax/blob/master/WritingTests.md",
+  "suites": {
+    "argumentErrors": [
+      {
+        "format": "minute(foo)",
+        "parseErrorIndex": 7
+      },
+      {
+        "format": "minute(monday)",
+        "parseErrorIndex": 7
+      },
+      {
+        "format": "minute(4/1)",
+        "parseErrorIndex": 8
+      },
+      {
+        "format": "dow(1..tuesday%wednesday)",
+        "parseErrorIndex": 15
+      },
+      {
+        "format": "minute(*%0)",
+        "parseErrorIndex": 8
+      },
+      {
+        "format": "m(999999999999999999999999999999999999999)",
+        "parseErrorIndex": 2
+      },
+      {
+        "format": "m(4294967296)",
+        "parseErrorIndex": 2
+      },
+      {
+        "format": "m(5..<5)",
+        "parseErrorIndex": 2
+      },
+      {
+        "format": "date(2/4..<2/4)",
+        "parseErrorIndex": 5
+      },
+      {
+        "format": "m(!*)",
+        "parseErrorIndex": 2
+      },
+      {
+        "format": "m(!*%2)",
+        "date": "2014-06-25T18:26:12.326Z",
+        "prev": "2014-06-25T18:25:00.000Z",
+        "next": "2014-06-25T18:27:00.000Z"
+      }
+    ],
+    "commas": [
+      {
+        "desc": "Invalid preceding comma.",
+        "format": ",m(5)",
+        "parseErrorIndex": 0
+      },
+      {
+        "desc": "Trailing comma.",
+        "format": "m(5),",
+        "date": "2014-06-25T18:26:12.326Z",
+        "prev": "2014-06-25T18:05:00.000Z",
+        "next": "2014-06-25T19:05:00.000Z"
+      },
+      {
+        "desc": "Invalid multiple trailing commas.",
+        "format": "m(5),,",
+        "parseErrorIndex": 5
+      },
+      {
+        "desc": "Invalid comma before argument list.",
+        "format": "m(,5)",
+        "parseErrorIndex": 2
+      },
+      {
+        "desc": "Trailing comma in argument list.",
+        "format": "m(5,)",
+        "date": "2014-06-25T18:26:12.326Z",
+        "prev": "2014-06-25T18:05:00.000Z",
+        "next": "2014-06-25T19:05:00.000Z"
+      },
+      {
+        "desc": "Invalid second trailing comma in argument list.",
+        "format": "m(5,,)",
+        "parseErrorIndex": 4
+      },
+      {
+        "desc": "Comma delimited argument list.",
+        "format": "m(5,10)",
+        "date": "2014-06-25T18:26:12.326Z",
+        "prev": "2014-06-25T18:10:00.000Z",
+        "next": "2014-06-25T19:05:00.000Z"
+      },
+      {
+        "desc": "Space delimited argument list.",
+        "format": "m(5 10)",
+        "date": "2014-06-25T18:26:12.326Z",
+        "prev": "2014-06-25T18:10:00.000Z",
+        "next": "2014-06-25T19:05:00.000Z"
+      },
+      {
+        "desc": "Comma delimited expressions.",
+        "format": "m(5),m(10)",
+        "date": "2014-06-25T18:26:12.326Z",
+        "prev": "2014-06-25T18:10:00.000Z",
+        "next": "2014-06-25T19:05:00.000Z"
+      },
+      {
+        "desc": "Space delimited expressions.",
+        "format": "m(5) m(10)",
+        "date": "2014-06-25T18:26:12.326Z",
+        "prev": "2014-06-25T18:10:00.000Z",
+        "next": "2014-06-25T19:05:00.000Z"
+      }
+    ],
+    "dates": [
       {
         "format": "date(*)",
         "date": "2014-06-25T18:26:00.000Z",
@@ -97,10 +211,8 @@
         "format": "dates(1/32)",
         "parseErrorIndex": 6
       }
-    ]
-  },
-  "daysOfMonth": {
-    "checks": [
+    ],
+    "daysOfMonth": [
       {
         "format": "dom(*)",
         "date": "2014-06-25T18:26:00.000Z",
@@ -389,10 +501,8 @@
         "format": "dom(-32)",
         "parseErrorIndex": 4
       }
-    ]
-  },
-  "daysOfWeek": {
-    "checks": [
+    ],
+    "daysOfWeek": [
       {
         "format": "day(*)",
         "date": "2014-06-25T18:26:00.000Z",
@@ -927,10 +1037,8 @@
         "format": "dow(-1)",
         "parseErrorIndex": 4
       }
-    ]
-  },
-  "hours": {
-    "checks": [
+    ],
+    "hours": [
       {
         "format": "h(*)",
         "date": "2014-06-25T18:26:00.000Z",
@@ -1239,10 +1347,8 @@
         "format": "h(24)",
         "parseErrorIndex": 2
       }
-    ]
-  },
-  "minutes": {
-    "checks": [
+    ],
+    "minutes": [
       {
         "format": "m(*)",
         "date": "2014-06-25T18:26:12.326Z",
@@ -1557,10 +1663,8 @@
         "format": "m(60)",
         "parseErrorIndex": 2
       }
-    ]
-  },
-  "seconds": {
-    "checks": [
+    ],
+    "seconds": [
       {
         "format": "s(*)",
         "date": "2014-06-25T18:26:12.326Z",
@@ -1875,31 +1979,35 @@
         "format": "s(60)",
         "parseErrorIndex": 2
       }
-    ]
-  },
-  "syntaxErrors": {
-    "checks": [
+    ],
+    "syntaxErrors": [
       {
+        "desc": "Empty schedule.",
         "format": "",
         "parseErrorIndex": 0
       },
       {
+        "desc": "Whitespace only schedule",
         "format": " ",
         "parseErrorIndex": 0
       },
       {
+        "desc": "Empty group, and no expressions.",
         "format": "{}",
         "parseErrorIndex": 0
       },
       {
+        "desc": "Unknown token.",
         "format": "foo",
         "parseErrorIndex": 0
       },
       {
+        "desc": "Unknown expression.",
         "format": "foo()",
         "parseErrorIndex": 0
       },
       {
+        "desc": "Unknown expression.",
         "format": "foo(*)",
         "parseErrorIndex": 0
       },
@@ -1916,6 +2024,7 @@
         "parseErrorIndex": 0
       },
       {
+        "desc": "Unclosed group.",
         "format": "{",
         "parseErrorIndex": 1
       },
@@ -1998,112 +2107,6 @@
       {
         "format": "minute(!%)",
         "parseErrorIndex": 8
-      }
-    ]
-  },
-  "argumentErrors": {
-    "checks": [
-      {
-        "format": "minute(foo)",
-        "parseErrorIndex": 7
-      },
-      {
-        "format": "minute(monday)",
-        "parseErrorIndex": 7
-      },
-      {
-        "format": "minute(4/1)",
-        "parseErrorIndex": 8
-      },
-      {
-        "format": "dow(1..tuesday%wednesday)",
-        "parseErrorIndex": 15
-      },
-      {
-        "format": "minute(*%0)",
-        "parseErrorIndex": 8
-      },
-      {
-        "format": "m(999999999999999999999999999999999999999)",
-        "parseErrorIndex": 2
-      },
-      {
-        "format": "m(4294967296)",
-        "parseErrorIndex": 2
-      },
-      {
-        "format": "m(5..<5)",
-        "parseErrorIndex": 2
-      },
-      {
-        "format": "date(2/4..<2/4)",
-        "parseErrorIndex": 5
-      },
-      {
-        "format": "m(!*)",
-        "parseErrorIndex": 2
-      },
-      {
-        "format": "m(!*%2)",
-        "date": "2014-06-25T18:26:12.326Z",
-        "prev": "2014-06-25T18:25:00.000Z",
-        "next": "2014-06-25T18:27:00.000Z"
-      }
-    ]
-  },
-  "commas": {
-    "checks": [
-      {
-        "format": ",m(5)",
-        "parseErrorIndex": 0
-      },
-      {
-        "format": "m(5),",
-        "date": "2014-06-25T18:26:12.326Z",
-        "prev": "2014-06-25T18:05:00.000Z",
-        "next": "2014-06-25T19:05:00.000Z"
-      },
-      {
-        "format": "m(5),,",
-        "parseErrorIndex": 5
-      },
-      {
-        "format": "m(,5)",
-        "parseErrorIndex": 2
-      },
-      {
-        "format": "m(5,)",
-        "date": "2014-06-25T18:26:12.326Z",
-        "prev": "2014-06-25T18:05:00.000Z",
-        "next": "2014-06-25T19:05:00.000Z"
-      },
-      {
-        "format": "m(5,,)",
-        "parseErrorIndex": 4
-      },
-      {
-        "format": "m(5,10)",
-        "date": "2014-06-25T18:26:12.326Z",
-        "prev": "2014-06-25T18:10:00.000Z",
-        "next": "2014-06-25T19:05:00.000Z"
-      },
-      {
-        "format": "m(5 10)",
-        "date": "2014-06-25T18:26:12.326Z",
-        "prev": "2014-06-25T18:10:00.000Z",
-        "next": "2014-06-25T19:05:00.000Z"
-      },
-      {
-        "format": "m(5),m(10)",
-        "date": "2014-06-25T18:26:12.326Z",
-        "prev": "2014-06-25T18:10:00.000Z",
-        "next": "2014-06-25T19:05:00.000Z"
-      },
-      {
-        "format": "m(5) m(10)",
-        "date": "2014-06-25T18:26:12.326Z",
-        "prev": "2014-06-25T18:10:00.000Z",
-        "next": "2014-06-25T19:05:00.000Z"
       }
     ]
   }

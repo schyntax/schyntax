@@ -1,0 +1,52 @@
+-- Invalid preceding comma.
+f: ,m(5)
+e: ^
+
+-- Trailing comma.
+f: m(5),
+d: 2014-06-25 18:26:12.326
+p: 2014-06-25 18:05:00
+n: 2014-06-25 19:05:00
+
+-- Invalid multiple trailing commas.
+f: m(5),,
+e:      ^
+
+-- Invalid comma before argument list.
+f: m(,5)
+e:   ^
+
+-- Trailing comma in argument list.
+f: m(5,)
+d: 2014-06-25 18:26:12.326
+p: 2014-06-25 18:05:00
+n: 2014-06-25 19:05:00
+
+-- Invalid second trailing comma in argument list.
+f: m(5,,)
+e:     ^
+
+-- Comma delimited argument list.
+f: m(5,10)
+d: 2014-06-25 18:26:12.326
+p: 2014-06-25 18:10:00
+n: 2014-06-25 19:05:00
+
+-- Space delimited argument list.
+f: m(5 10)
+d: 2014-06-25 18:26:12.326
+p: 2014-06-25 18:10:00
+n: 2014-06-25 19:05:00
+
+-- Comma delimited expressions.
+f: m(5),m(10)
+d: 2014-06-25 18:26:12.326
+p: 2014-06-25 18:10:00
+n: 2014-06-25 19:05:00
+
+-- Space delimited expressions.
+f: m(5) m(10)
+d: 2014-06-25 18:26:12.326
+p: 2014-06-25 18:10:00
+n: 2014-06-25 19:05:00
+
