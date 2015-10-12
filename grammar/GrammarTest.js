@@ -9,7 +9,7 @@ run();
 
 function run ()
 {
-	var bnf = Fs.readFileSync(Path.join(__dirname, 'temp.jison'), 'utf8');
+	var bnf = Fs.readFileSync(Path.join(__dirname, 'schyntax.jison'), 'utf8');
 	var parser = new Jison.Parser(bnf);
 	
 	for (var name in tests.suites)
