@@ -5,7 +5,7 @@
 
 %%
 
-\s+       /* ignore whitespace */
+[\s\r\n]+ /* ignore whitespace */
 <<EOF>>   return 'EOF'
 
 '..<'     return '..<'
