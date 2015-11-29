@@ -64,6 +64,18 @@ Examples:
 * `dom(-5..-1)` the last five days of the month.
 * `dom(10..-1)` The 10th through the last day of the month.
 
+### daysOfYear
+
+Aliases: `doy`, `dayOfYear`
+
+Accepts numbers and numeric-range ar1guments between 1 and 365 inclusive. A second range from -365 to -1 is also allowed and are counted as days from the end of the year. The calculation of previous and next takes into account leapyears. 
+
+Examples:
+
+* `doy(-1)` The last day of the year.
+* `doy(-5..-1)` the last five days of the year.
+* `doy(10..-1)` The 10th through the last day of the year.
+
 ### dates
 
 Aliases: `date`
@@ -80,7 +92,7 @@ Examples:
 
 ## Defaults
 
-When a format string does not include all expression types, some assumptions must be made about the missing values. Schyntax looks at the expression with the highest-resolution, and then sets `exp_name(0)` for any higher-resolution expressions. For example, if `hours` is the highest resolution specified, then `minutes(0) seconds(0)` is implicitly added to the format. All day-level expressions (`daysOfWeek`, `daysOfMonth`, `dates`) are treated as the same resolution. Any other (lower-resolution) missing expression types are considered wildcards, meaning they will match any date/time (equivalent to `exp_name(*)`).
+When a format string does not include all expression types, some assumptions must be made about the missing values. Schyntax looks at the expression with the highest-resolution, and then sets `exp_name(0)` for any higher-resolution expressions. For example, if `hours` is the highest resolution specified, then `minutes(0) seconds(0)` is implicitly added to the format. All day-level expressions (`daysOfWeek`, `daysOfMonth`, `daysOfYear`, `dates`) are treated as the same resolution. Any other (lower-resolution) missing expression types are considered wildcards, meaning they will match any date/time (equivalent to `exp_name(*)`).
 
 Here are some examples which illustrate these defaults:
 
@@ -89,6 +101,7 @@ Here are some examples which illustrate these defaults:
 * `daysOfWeek(mon..fri)` will run at midnight UTC Mondays through Fridays.
 * `daysOfWeek(mon) hours(12)` will run at noon UTC on Mondays.
 * `daysOfWeek(mon) minutes(0, 30)` will run at the top and half of every hour on Mondays.
+* `daysOfYear(*)` will run at midnight (00:00:00) every day.
 
 ## Groups
 
