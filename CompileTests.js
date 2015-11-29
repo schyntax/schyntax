@@ -23,8 +23,8 @@ function run()
 {
 	var files = Fs.readdirSync(TESTS_DIR);
 	var tests = {
-		testsVersion: existingTests.testsVersion + 1,
-		hash: '',
+		testsVersion: 0,
+		hash: 'UNVERSIONED - DO NOT include this file in ANY pull request to the schyntax/schyntax repo.',
 		comment: 'THIS IS A GENERATED FILE. No changes should be made to this file directly. See: https://github.com/schyntax/schyntax/blob/master/WritingTests.md',
 		suites: {}
 	};
@@ -35,12 +35,28 @@ function run()
 		tests.suites[name] = parseTests(name, f);
 	}
 	
-	// create the hash
-	var hash = Crypto.createHash('md5');
-	hash.update(toJson(tests), 'utf8');
-	tests.hash = hash.digest('hex');
+	if (shouldVersion())
+	{
+		tests.testsVersion = existingTests.testsVersion + 1;
+		
+		// create the hash
+		var hash = Crypto.createHash('md5');
+		hash.update(toJson(tests), 'utf8');
+		tests.hash = hash.digest('hex');
+	}
 	
 	Fs.writeFileSync(OUTPUT_FILE, toJson(tests));
+}
+
+function shouldVersion()
+{
+	for (var i in process.argv)
+	{
+		if (process.argv[i] === '-v')
+			return true;
+	}
+	
+	return false;
 }
 
 function toJson(tests)
