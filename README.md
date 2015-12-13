@@ -68,13 +68,13 @@ Examples:
 
 Aliases: `doy`, `dayOfYear`
 
-Accepts numbers and numeric-range ar1guments between 1 and 365 inclusive. A second range from -365 to -1 is also allowed and are counted as days from the end of the year. The calculation of previous and next takes into account leapyears. 
+Accepts numbers and numeric-range arguments between 1 and 366 inclusive. A second range from -366 to -1 is also allowed and are counted as days from the end of the year.
 
 Examples:
 
 * `doy(-1)` The last day of the year.
 * `doy(-5..-1)` the last five days of the year.
-* `doy(10..-1)` The 10th through the last day of the year.
+* `doy(10..-1)` January 10th through December 31st.
 
 ### dates
 
