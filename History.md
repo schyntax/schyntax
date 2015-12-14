@@ -4,8 +4,10 @@ Schyntax uses a simple versioning scheme where non-breaking changes, unless very
 
 Schyntax implementations should indicate which version of the spec they currently implement.
 
-### Version 1.0.0
+### [1.0.1](https://github.com/schyntax/schyntax/tree/v1.0.1)
 
-[1.0.0 Grammar](https://github.com/schyntax/schyntax/blob/0b06e4844bfb47ed8dce17b56ee0dc0d753eae4d/grammar/schyntax.jison)
+Added `daysOfYear` expression.
+
+### [1.0.0](https://github.com/schyntax/schyntax/tree/v1.0.0)
 
 Start of versioning.
