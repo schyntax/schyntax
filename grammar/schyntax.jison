@@ -35,6 +35,7 @@
 \b(h|hour|hours|hourofday|hoursofday)\b                     return 'HOURS'
 \b(day|days|dow|dayofweek|daysofweek)\b                     return 'DAYS_OF_WEEK'
 \b(dom|dayofmonth|daysofmonth)\b                            return 'DAYS_OF_MONTH'
+\b(doy|dayofyear|daysofyear)\b                              return 'DAYS_OF_YEAR'
 \b(date|dates)\b                                            return 'DATES'
 
 /lex
@@ -80,6 +81,7 @@ ExpressionName
 	| HOURS
 	| DAYS_OF_WEEK
 	| DAYS_OF_MONTH
+	| DAYS_OF_YEAR
 	| DATES 
 ;
 
